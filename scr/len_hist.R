@@ -1,10 +1,11 @@
-library(ggplot2)
-library(dplyr)
-NAME <- 'H3K9me3_SK-N-SH.ENCFF501EUA.hg19'
-#NAME <- 'H3K9me3_SK-N-SH.ENCFF709THW.hg19'
-OUT_DIR <- 'Results/'
+source('lib.R')
 
-bed_df <- read.delim(paste0('data/', NAME, '.bed'), as.is = TRUE, header = FALSE)
+
+#NAME <- 'H3K9me3_SK-N-SH.ENCFF501EUA.hg19'
+NAME <- 'H3K9me3_SK-N-SH.ENCFF709THW.hg19'
+
+
+bed_df <- read.delim(paste0(DATA_DIR, NAME, '.bed'), as.is = TRUE, header = FALSE)
 colnames(bed_df) <- c('chrom', 'start', 'end', 'name', 'score')
 bed_df$len <- bed_df$end - bed_df$start
 head(bed_df)
